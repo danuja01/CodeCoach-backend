@@ -2,6 +2,7 @@ import { Joi } from 'celebrate';
 
 export const addUserSchema = {
   name: Joi.string().required(),
+  username: Joi.string().required(),
   email: Joi.string().email().required(),
   university: Joi.string().required()
 };

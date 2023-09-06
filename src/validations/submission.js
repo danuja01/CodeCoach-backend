@@ -60,12 +60,3 @@ export const submissionViewSchema = {
   page: Joi.number().optional(),
   limit: Joi.number().optional()
 };
-
-export const viewOneSubmissionSchema = {
-  filter: Joi.object().keys({
-    _id: Joi.string().hex().length(24).optional(),
-    questionId: Joi.string().hex().length(24).optional(),
-    userId: Joi.string().hex().length(24).optional(),
-    attempts: Joi.number().optional()
-  })
-};

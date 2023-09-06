@@ -15,7 +15,7 @@ export const insertSubmission = async (data) => {
 };
 
 export const getSubmissions = async ({ sort = {}, filter = {}, page, limit = 10 }) => {
-  const populate = ['userId', 'questionId', 'testCasesStatus.testCaseId'];
+  const populate = [{ path: 'userId', select: 'username name email' }, 'questionId', 'testCasesStatus.testCaseId'];
 
   const options = {
     sort,
@@ -37,7 +37,7 @@ export const getSubmissions = async ({ sort = {}, filter = {}, page, limit = 10 
 
 export const updateSubmission = async (id, data) => {
   const query = { _id: id };
-  await Submission.findOneAndUpdate(
+  const submission = await Submission.findOneAndUpdate(
     query,
     {
       ...data,
@@ -45,6 +45,7 @@ export const updateSubmission = async (id, data) => {
     },
     { upsert: true }
   );
+  return submission;
 };
 
 export const getSubmissionById = (id) => {
@@ -52,5 +53,6 @@ export const getSubmissionById = (id) => {
 };
 
 export const getOneSubmission = (filters, options = {}) => {
+  console.log('filters>>>', filters);
   return Submission.findOne(filters, options).lean();
 };

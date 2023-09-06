@@ -1,5 +1,5 @@
 import mongoose from 'mongoose';
-import aggregatePaginate from 'mongoose-aggregate-paginate-v2';
+import mongoosePaginate from 'mongoose-paginate-v2';
 
 const SubmissionSchema = new mongoose.Schema(
   {
@@ -10,7 +10,7 @@ const SubmissionSchema = new mongoose.Schema(
     },
     questionId: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'Question',
+      //   ref: 'Question',
       required: true
     },
     code: {
@@ -29,7 +29,7 @@ const SubmissionSchema = new mongoose.Schema(
       {
         testCaseId: {
           type: mongoose.Schema.Types.ObjectId,
-          ref: 'Question.testCases',
+          //   ref: 'Question.testCases',
           required: true
         },
         status: {
@@ -50,7 +50,7 @@ const SubmissionSchema = new mongoose.Schema(
   }
 );
 
-SubmissionSchema.plugin(aggregatePaginate);
+SubmissionSchema.plugin(mongoosePaginate);
 
 SubmissionSchema.index({ createdAt: 1 });
 

@@ -14,11 +14,20 @@ import {
 } from '@/repository/submission';
 
 export const insertSubmissionService = async (data) => {
-  const submission = await insertSubmission(data);
-  return submission;
+  const submission = await getOneSubmission({ userId: data.userId, questionId: data.questionId });
+
+  try {
+    if (!submission) {
+      await insertSubmission(data);
+    } else {
+      await updateSubmissionService(submission._id, data);
+    }
+  } catch (err) {
+    throw new createError(500, 'Error when processing submission');
+  }
 };
 
-export const updateSubmissionService = async (id, data) => {
+const updateSubmissionService = async (id, data) => {
   const submission = await updateSubmission(id, data);
   if (!submission) throw new createError(422, 'Invalid submission ID');
   return submission;
@@ -34,8 +43,8 @@ export const getSubmissionByIdService = async (id) => {
   return submission;
 };
 
-export const getOneSubmissionService = async (query) => {
-  const submission = await getOneSubmission(query);
+export const getOneSubmissionService = async (query, options) => {
+  const submission = await getOneSubmission(query, options);
   if (!submission) throw new createError(422, 'Invalid submission ID');
   return submission;
 };

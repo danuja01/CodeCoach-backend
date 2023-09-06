@@ -7,15 +7,12 @@ import {
   getOneSubmissionService,
   getSubmissionByIdService,
   insertSubmissionService,
-  updateSubmissionService,
   viewSubmissionsService
-} from '@/repository/submission';
+} from '@/services/submission';
 import { makeResponse } from '@/utils/response';
 
 export const createSubmission = async (req, res) => {
-  const submission = await getOneSubmissionService({ userId: req.body.userId, questionId: req.body.questionId });
-  if (submission) updateSubmissionService(submission._id, req.body);
-  else insertSubmissionService(req.body);
+  await insertSubmissionService(req.body);
   return makeResponse({ res, status: 201, message: 'Submission added successfully ' });
 };
 
@@ -30,6 +27,6 @@ export const getSubmissionById = async (req, res) => {
 };
 
 export const getOneSubmission = async (req, res) => {
-  const submission = await getOneSubmissionService(req.query);
+  const submission = await getOneSubmissionService(req.query, req.body);
   return makeResponse({ res, data: submission, message: 'Submission retrieved successfully' });
 };

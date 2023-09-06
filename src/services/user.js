@@ -1,3 +1,8 @@
+/**
+ * @author Danuja Jayasuriya
+ * @description This module provides functions to interact with users in a database.
+ * @methods createUser, getAllUsers, getOneUser, findOneAndUpdateUser, findOneAndRemoveUser
+ */
 import bcrypt from 'bcryptjs';
 import createError from 'http-errors';
 import { createUser, findOneAndRemoveUser, findOneAndUpdateUser, getAllUsers, getOneUser } from '@/repository/user';

@@ -1,7 +1,13 @@
+/**
+ * @author Danuja Jayasuriya
+ * @description This module provides functions to validate user data.
+ * @methods addUserSchema, userIdSchema, updateSchema, changePasswordSchema
+ */
 import { Joi } from 'celebrate';
 
 export const addUserSchema = {
   name: Joi.string().required(),
+  username: Joi.string().required(),
   email: Joi.string().email().required(),
   university: Joi.string().required()
 };

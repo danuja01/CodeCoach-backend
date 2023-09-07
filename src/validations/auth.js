@@ -1,3 +1,8 @@
+/**
+ * @author Danuja Jayasuriya
+ * @description This module provides functions to validate auth data.
+ * @methods loginSchema, refreshTokenSchema, registerSchema, resendVerifyMailSchema, forgotPasswordSchema, resetPasswordSchema, validUserResetPasswordSchema, verifySchema
+ */
 import { Joi } from 'celebrate';
 
 export const loginSchema = Joi.object({

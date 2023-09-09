@@ -1,5 +1,5 @@
 import { moduleLogger } from '@sliit-foss/module-logger';
-import { Lab } from '@/models';
+import Lab from '@/models/lab';
 
 const logger = moduleLogger('Lab-Repository');
 

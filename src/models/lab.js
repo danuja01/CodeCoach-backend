@@ -15,14 +15,14 @@ const LabSchema = new mongoose.Schema(
       required: true
     },
     lecturer: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: 'User',
-      required: true
+      type: String
+      // ref: 'User',
+      // required: true
     },
     students: [
       {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'User'
+        type: String
+        // ref: 'User'
       }
     ],
     codeChallenges: [

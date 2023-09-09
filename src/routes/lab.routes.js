@@ -10,7 +10,7 @@ const labRouter = express.Router();
 labRouter.post(
   '/',
   celebrate({ [Segments.BODY]: createLabSchema }),
-  authorizer(['LECTURER']),
+  authorizer(['LECTURER', 'ADMIN']),
   tracedAsyncHandler(createLab)
 );
 
@@ -26,14 +26,14 @@ labRouter.get(
 labRouter.put(
   '/:id',
   celebrate({ [Segments.PARAMS]: labIdSchema, [Segments.BODY]: updateLabSchema }),
-  authorizer(['LECTURER']),
+  authorizer(['LECTURER', 'ADMIN']),
   tracedAsyncHandler(updateLab)
 );
 
 labRouter.delete(
   '/:id',
   celebrate({ [Segments.PARAMS]: labIdSchema }),
-  authorizer(['LECTURER']),
+  authorizer(['LECTURER', 'ADMIN']),
   tracedAsyncHandler(deleteLab)
 );
 

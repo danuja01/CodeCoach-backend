@@ -28,7 +28,7 @@ const LabSchema = new mongoose.Schema(
     codeChallenges: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'Challenge'
+        ref: 'challenge'
       }
     ]
   },

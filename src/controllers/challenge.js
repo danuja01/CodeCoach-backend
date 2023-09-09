@@ -38,6 +38,6 @@ export const getTestCases = async (req, res) => {
   return makeResponse({
     res,
     data: testCases,
-    message: `test cases of challenge: ${req.params.id} retrieved succesfully`
+    message: 'test cases of the challenge retrieved succesfully'
   });
 };

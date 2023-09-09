@@ -83,12 +83,13 @@ export const findOneAndRemoveChallenge = async (filters) => {
   }
 };
 
+// this function find the test cases of a challenge using challenge id
 export const getTestCases = async (filters) => {
   try {
     const testCases = await Challenge.aggregate([
       {
         $match: {
-          _id: mongoose.Types.ObjectId(filters._id)
+          _id: new mongoose.Types.ObjectId(filters._id)
         }
       },
       {

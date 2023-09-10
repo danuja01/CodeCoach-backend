@@ -1,3 +1,9 @@
+/**
+ * User Repository
+ * @author Danuja Jayasuriya
+ * @description This module provides functions to interact with users in a database.
+ * @methods createUser, getAllUsers, getOneUser, findOneAndUpdateUser, findOneAndRemoveUser
+ */
 import { moduleLogger } from '@sliit-foss/module-logger';
 import { User } from '@/models';
 

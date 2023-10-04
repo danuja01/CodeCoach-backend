@@ -6,6 +6,9 @@ import challengeRouter from './challenge.routes';
 import labRouter from './lab.routes';
 import submissionRouter from './submission.routes';
 import userRouter from './user.routes';
+import challengeRouter from './challenge.routes';
+import postRouter from './post.routes';
+import replyRouter from './reply.routes';
 
 const router = express.Router();
 
@@ -14,5 +17,7 @@ router.use('/users', protect, userRouter);
 router.use('/submissions', protect, submissionRouter);
 router.use('/challenges', protect, challengeRouter);
 router.use('/labs', protect, labRouter);
+router.use('/posts', protect, postRouter);
+router.use('/replies', protect, replyRouter);
 
 export default router;

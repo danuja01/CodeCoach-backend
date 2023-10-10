@@ -5,6 +5,10 @@ const Schema = mongoose.Schema;
 
 const ChallengeSchema = new mongoose.Schema(
   {
+    name: {
+      type: String,
+      required: true
+    },
     description: {
       type: String,
       required: true
@@ -20,11 +24,15 @@ const ChallengeSchema = new mongoose.Schema(
     },
     testCases: [
       {
-        testNo: {
+        testName: {
           type: String,
           required: true
         },
         description: {
+          type: String,
+          required: true
+        },
+        input: {
           type: String,
           required: true
         },

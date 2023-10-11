@@ -8,30 +8,13 @@ export const createLab = async (lab) => {
   return newLab;
 };
 
-export const getAllLabs = ({ sort = {}, filter = {}, page = 1, limit = 10 }) => {
-  const options = {
-    page,
-    limit
-  };
-
-  if (Object.keys(sort).length > 0) options.sort = sort;
-
-  const aggregateQuery = () =>
-    Lab.aggregate([
-      {
-        $match: filter
-      },
-      {
-        $project: {
-          // password: 0
-        }
-      }
-    ]);
-
-  return (page ? Lab.aggregatePaginate(aggregateQuery(), options) : aggregateQuery()).catch((err) => {
-    logger.error(`An error occurred when retrieving labs - err: ${err.message}`);
-    throw err;
-  });
+export const getAllLabs = async () => {
+  try {
+    const labs = await Lab.find({}).exec();
+    return labs;
+  } catch (error) {
+    throw new Error(500, 'Error while fetching labs');
+  }
 };
 
 export const getLabsByUser = async (user) => {

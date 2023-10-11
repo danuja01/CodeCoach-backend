@@ -10,10 +10,18 @@ const LabSchema = new mongoose.Schema(
       type: String,
       required: true
     },
+    students: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: false
+      }
+    ],
     codeChallenges: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'challenge'
+        ref: 'challenge',
+        required: false
       }
     ]
   },

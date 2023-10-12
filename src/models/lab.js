@@ -23,7 +23,12 @@ const LabSchema = new mongoose.Schema(
         ref: 'challenge',
         required: false
       }
-    ]
+    ],
+    forum: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Post',
+      required: false
+    }
   },
   {
     versionKey: '__v',

@@ -7,3 +7,4 @@ export { default as Submission } from './submission';
 11;
 >>>>>>> a36c129 (Patch: Modify lab model)
 export { default as Challenge } from './challenge';
+export { default as Lab } from './lab';

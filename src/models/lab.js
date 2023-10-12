@@ -2,33 +2,26 @@ import mongoose from 'mongoose';
 
 const LabSchema = new mongoose.Schema(
   {
-    date: {
-      type: Date,
-      required: true
-    },
-    time: {
+    moduleName: {
       type: String,
       required: true
     },
-    duration: {
-      type: Number,
+    batchGroup: {
+      type: String,
       required: true
-    },
-    lecturer: {
-      type: String
-      // ref: 'User',
-      // required: true
     },
     students: [
       {
-        type: String
-        // ref: 'User'
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: false
       }
     ],
     codeChallenges: [
       {
         type: mongoose.Schema.Types.ObjectId,
-        ref: 'challenge'
+        ref: 'challenge',
+        required: false
       }
     ]
   },

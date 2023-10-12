@@ -9,6 +9,13 @@ export const createLabService = async (labDetails) => {
 export const getLabsByUserService = async (user) => {
   if (!user) throw new createError(404, 'User not found');
 
+  if (user.role === 'ADMIN') {
+    // If the user is an admin, fetch all labs
+    const labs = await getAllLabsService();
+
+    return labs;
+  }
+
   let labs = [];
 
   if (user.role === 'LECTURER') {
@@ -18,7 +25,6 @@ export const getLabsByUserService = async (user) => {
     // If the user is a student, fetch labs assigned to the student
     labs = await getLabsByUser({ students: user._id });
   }
-
   return labs;
 };
 

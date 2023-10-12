@@ -53,6 +53,5 @@ export const getSubmissionById = (id) => {
 };
 
 export const getOneSubmission = (filters, options = {}) => {
-  console.log('filters>>>', filters);
   return Submission.findOne(filters, options).lean();
 };

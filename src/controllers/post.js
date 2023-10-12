@@ -1,5 +1,12 @@
-import { getAllPostsService, getPostByIdService, createPostService, updatePostService, deletePostService, likePostService } from '../services/post.js';
 import { makeResponse } from '@/utils';
+import {
+  createPostService,
+  deletePostService,
+  getAllPostsService,
+  getPostByIdService,
+  likePostService,
+  updatePostService
+} from '../services/post.js';
 
 export const getAllPosts = async (req, res) => {
   const posts = await getAllPostsService();

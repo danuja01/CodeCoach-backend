@@ -10,7 +10,12 @@ export const createLab = async (lab) => {
 
 export const getAllLabs = async () => {
   try {
-    const labs = await Lab.find({}).exec();
+    const labs = await Lab.find({})
+      .populate({
+        path: 'codeChallenges',
+        select: 'description'
+      })
+      .exec();
     return labs;
   } catch (error) {
     throw new Error(500, 'Error while fetching labs');

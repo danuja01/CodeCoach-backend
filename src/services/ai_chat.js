@@ -21,10 +21,6 @@ export const sendChat = async (message, id, code) => {
     // System message 2: Explaining the challenge
     {
       role: 'system',
-      content: `You are a helpful assistant that explains challenges.`
-    },
-    {
-      role: 'system',
       content: `You are assisting a user in understanding the following challenge: ${sanitizedChallenge}.`
     },
     // System message 3: Explaining the code
@@ -39,6 +35,10 @@ export const sendChat = async (message, id, code) => {
     {
       role: 'system',
       content: `You will guide the user in identifying errors in their code. users code: (${code}).`
+    },
+    {
+      role: 'system',
+      content: `Your responses should be in HTML content, and any code snippets should be wrapped within <pre> tags.`
     },
     // System message 4: Teaching approach
     {

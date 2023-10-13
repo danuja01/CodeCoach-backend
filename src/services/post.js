@@ -1,4 +1,5 @@
-import { getAllPosts, getPostById, createPost, updatePost, deletePost, likePost } from '../repository/post.js';
+/* eslint-disable no-return-await */
+import { createPost, deletePost, getAllPosts, getPostById, likePost, updatePost } from '../repository/post.js';
 
 export const getAllPostsService = async () => {
   return await getAllPosts();

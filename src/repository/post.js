@@ -1,3 +1,4 @@
+/* eslint-disable no-return-await */
 import Post from '../models/posts';
 
 export const getAllPosts = async () => {

@@ -20,7 +20,6 @@ labRouter.get('/all', authorizer(['ADMIN', 'LECTURER', 'STUDENT']), async (req, 
   try {
     await getAllLabs(req, res);
   } catch (error) {
-    console.error(error);
     res.status(500).json({ error: 'Internal server error' });
   }
 });

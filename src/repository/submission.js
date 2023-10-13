@@ -14,7 +14,7 @@ export const insertSubmission = async (data) => {
   await newSubmission.save();
 };
 
-export const getSubmissions = async ({ sort = {}, filter = {}, page, limit = 10 }) => {
+export const getSubmissions = async ({ sort = {}, filter = {}, page, limit = 100 }) => {
   const populate = [{ path: 'userId', select: 'username name email' }, 'questionId', 'testCasesStatus.testCaseId'];
 
   const options = {
@@ -53,6 +53,5 @@ export const getSubmissionById = (id) => {
 };
 
 export const getOneSubmission = (filters, options = {}) => {
-  console.log('filters>>>', filters);
   return Submission.findOne(filters, options).lean();
 };

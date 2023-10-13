@@ -10,7 +10,7 @@ const SubmissionSchema = new mongoose.Schema(
     },
     questionId: {
       type: mongoose.Schema.Types.ObjectId,
-      //   ref: 'Question',
+      ref: 'challenge',
       required: true
     },
     code: {
@@ -29,7 +29,7 @@ const SubmissionSchema = new mongoose.Schema(
       {
         testCaseId: {
           type: mongoose.Schema.Types.ObjectId,
-          //   ref: 'Question.testCases',
+          // ref: 'challenge.testCases',
           required: true
         },
         status: {

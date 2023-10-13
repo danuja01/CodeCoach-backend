@@ -15,8 +15,11 @@ export const insertSubmission = async (data) => {
 };
 
 export const getSubmissions = async ({ sort = {}, filter = {}, page, limit = 100 }) => {
-  const populate = [{ path: 'userId', select: 'username name email' }, 'questionId', 'testCasesStatus.testCaseId'];
-
+  const populate = [
+    { path: 'userId', select: 'username name email' },
+    { path: 'questionId', select: 'description' },
+    { path: 'testCasesStatus.testCaseId' }
+  ];
   const options = {
     sort,
     page,

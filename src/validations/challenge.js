@@ -1,6 +1,7 @@
 import { Joi } from 'celebrate';
 
 export const addChallengeSchema = {
+  name: Joi.string().required(),
   description: Joi.string().required(),
   isPublic: Joi.boolean().optional(),
   publisher: Joi.string()
@@ -9,8 +10,9 @@ export const addChallengeSchema = {
   testCases: Joi.array()
     .items(
       Joi.object({
-        testNo: Joi.string().required(),
+        testName: Joi.string().required(),
         description: Joi.string().required(),
+        input: Joi.string().required(),
         output: Joi.string().required()
       })
     )
@@ -24,6 +26,7 @@ export const challengeIdSchema = {
 };
 
 export const updateChallengeSchema = {
+  name: Joi.string().optional(),
   description: Joi.string().optional(),
   isPublic: Joi.boolean().optional(),
   publisher: Joi.string()
@@ -32,8 +35,9 @@ export const updateChallengeSchema = {
   testCases: Joi.array()
     .items(
       Joi.object({
-        testNo: Joi.string().optional(),
+        testName: Joi.string().optional(),
         description: Joi.string().optional(),
+        input: Joi.string().optional(),
         output: Joi.string().optional(),
         _id: Joi.string()
           .regex(/^[0-9a-fA-F]{24}$/)

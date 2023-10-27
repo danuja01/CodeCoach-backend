@@ -14,6 +14,7 @@ const router = express.Router();
 
 router.use('/auth', authRouter);
 router.use('/users', protect, userRouter);
+router.use('/labs', protect, labRouter);
 router.use('/submissions', protect, submissionRouter);
 router.use('/challenges', protect, challengeRouter);
 router.use('/labs', protect, labRouter);
